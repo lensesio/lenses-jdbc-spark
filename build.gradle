@@ -1,0 +1,14 @@
+group 'com.landoop'
+version '1.0'
+
+apply plugin: "java"
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile 'com.landoop:lenses-jdbc:2.0.1'
+    compile 'org.apache.spark:spark-sql_2.11:2.3.0'
+}
