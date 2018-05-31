@@ -16,12 +16,16 @@ public class LsqlJdbcDialect extends JdbcDialect {
 
     @Override
     public String getSchemaQuery(String table) {
-        return table.replace("\\sLIMIT\\s+(\\d+)", "LIMIT 1");
+        if (table.toUpperCase().startsWith("SELECT")) {
+            return table.replace("\\sLIMIT\\s+(\\d+)", "LIMIT 1");
+        } else {
+            return "SELECT * from `" + table + "` LIMIT 1";
+        }
     }
 
     @Override
     public String getTableExistsQuery(String table) {
-        return table;
+        return "SELECT * FROM `" + table + "` LIMIT 1";
     }
 
     @Override

@@ -6,9 +6,19 @@ apply plugin: "java"
 repositories {
     mavenCentral()
     mavenLocal()
+    maven {
+        url "https://packages.confluent.io/maven"
+    }
 }
 
 dependencies {
     compile 'com.landoop:lenses-jdbc:2.0.1'
+    compile 'com.fasterxml.jackson:jackson-base:2.9.5'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.5'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.5'
+    compile 'com.fasterxml.jackson.module:jackson-module-paranamer:2.9.5'
+    compile 'com.fasterxml.jackson.module:jackson-module-scala_2.11:2.9.5'
     compile 'org.apache.spark:spark-sql_2.11:2.3.0'
+    compile 'org.apache.kafka:kafka-clients:1.1.0'
+    compile 'io.confluent:kafka-avro-serializer:3.2.3'
 }
